@@ -1,0 +1,64 @@
+CREATE DATABASE gerenciamento_de_restaurante;
+USE gerenciamento_de_restaurante;
+
+CREATE TABLE Clientes (
+    cliente_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    telefone VARCHAR(15),
+    email VARCHAR(100),
+    data_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Mesas (
+    mesa_id INT AUTO_INCREMENT PRIMARY KEY,
+    numero INT NOT NULL,
+    capacidade INT,
+    status VARCHAR(20) DEFAULT 'Disponível'
+);
+
+CREATE TABLE Pedidos (
+    pedido_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    mesa_id INT,
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) DEFAULT 'Em andamento',
+    FOREIGN KEY (cliente_id) REFERENCES Clientes(cliente_id),
+    FOREIGN KEY (mesa_id) REFERENCES Mesas(mesa_id)
+);
+
+CREATE TABLE Pedidos_Itens (
+    item_id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT,
+    produto_nome VARCHAR(100),
+    quantidade INT,
+    preco DECIMAL(10, 2),
+    FOREIGN KEY (pedido_id) REFERENCES Pedidos(pedido_id)
+);
+
+-- Inserindo Clientes
+INSERT INTO Clientes (nome, telefone, email) VALUES ('João Silva', '123456789', 'joao@email.com');
+INSERT INTO Clientes (nome, telefone, email) VALUES ('Maria Oliveira', '987654321', 'maria@email.com');
+
+-- Inserindo Mesas
+INSERT INTO Mesas (numero, capacidade, status) VALUES (1, 4, 'Disponível');
+INSERT INTO Mesas (numero, capacidade, status) VALUES (2, 2, 'Ocupada');
+
+-- Inserindo Pedidos
+INSERT INTO Pedidos (cliente_id, mesa_id, status) VALUES (1, 1, 'Em andamento');
+
+-- Inserindo Itens do Pedido
+INSERT INTO Pedidos_Itens (pedido_id, produto_nome, quantidade, preco) VALUES (1, 'Pizza Margherita', 1, 35.00);
+INSERT INTO Pedidos_Itens (pedido_id, produto_nome, quantidade, preco) VALUES (1, 'Refrigerante', 2, 5.00);
+
+SELECT Pedidos.pedido_id, Clientes.nome AS cliente, Mesas.numero AS mesa, Pedidos.status, Pedidos.data_pedido
+FROM Pedidos
+JOIN Clientes ON Pedidos.cliente_id = Clientes.cliente_id
+JOIN Mesas ON Pedidos.mesa_id = Mesas.mesa_id;
+
+SELECT Pedidos_Itens.produto_nome, Pedidos_Itens.quantidade, Pedidos_Itens.preco, 
+       (Pedidos_Itens.quantidade * Pedidos_Itens.preco) AS total
+FROM Pedidos_Itens
+WHERE Pedidos_Itens.pedido_id = 1;
+
+UPDATE Pedidos SET status = 'Concluído' WHERE pedido_id = 1;
+DELETE FROM Clientes WHERE cliente_id = 2;
