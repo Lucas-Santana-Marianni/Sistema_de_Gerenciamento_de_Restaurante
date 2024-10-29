@@ -1,0 +1,41 @@
+
+---
+
+### .gitignore
+
+```gitignore
+# Arquivos SQL temporários e backups
+*.sql~
+*.bak
+*.backup
+*.sql-journal
+
+# Variáveis de ambiente e configurações de ambiente
+.env
+
+# Logs
+*.log
+
+# Diretórios específicos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de banco de dados local (SQLite, MySQL dumps, etc.)
+*.db
+*.sqlite3
+*.dump
+*.tar.gz
+
+# Configurações e arquivos de IDE
+.vscode/
+.idea/
+*.iml
+
+# Arquivos temporários de execução
+*.tmp
+*.temp
+*~
+
+# Arquivos de cache de dependências (caso você use Node.js ou Python para ferramentas adicionais)
+node_modules/
+__pycache__/
