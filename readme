@@ -1,4 +1,3 @@
-Enunciado
 Sistema de Gerenciamento de Restaurante
 
 Desenvolva um sistema de gerenciamento de operações para um restaurante usando SQL. O sistema deve permitir o controle de clientes, mesas, pedidos e itens dos pedidos, possibilitando consultas detalhadas e o gerenciamento de status.
