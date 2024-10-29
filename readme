@@ -1,0 +1,38 @@
+Enunciado
+Sistema de Gerenciamento de Restaurante
+
+Desenvolva um sistema de gerenciamento de operações para um restaurante usando SQL. O sistema deve permitir o controle de clientes, mesas, pedidos e itens dos pedidos, possibilitando consultas detalhadas e o gerenciamento de status.
+
+Funcionalidades a serem implementadas:
+
+Cadastro de Clientes: Armazenar informações como nome, telefone e email.
+Gerenciamento de Mesas: Registrar mesas com capacidade e status (disponível ou ocupada).
+Registro de Pedidos: Permitir o registro de novos pedidos, associando cada pedido a um cliente e a uma mesa específica.
+Registro de Itens dos Pedidos: Armazenar informações detalhadas dos itens de cada pedido, incluindo nome do produto, quantidade e preço.
+Consultas Avançadas: Permitir consultas com JOIN para exibir detalhes como pedidos por cliente e mesa.
+Atualizações e Exclusões: Alterar o status de pedidos e excluir registros de clientes.
+A entrega deve incluir um arquivo SQL com os comandos para criar o banco de dados, tabelas e consultas essenciais.
+
+# Sistema de Gerenciamento de Restaurante
+
+Este projeto implementa um sistema SQL para gerenciar as operações de um restaurante, permitindo o cadastro de clientes, gerenciamento de mesas, registro de pedidos e itens dos pedidos. O sistema também permite consultas detalhadas e atualizações de status.
+
+## Funcionalidades
+
+- **Cadastro de Clientes**: Armazena informações de clientes, incluindo nome, telefone e email.
+- **Gerenciamento de Mesas**: Registra mesas com capacidade e status atual (disponível ou ocupada).
+- **Registro de Pedidos**: Armazena pedidos vinculados a um cliente e uma mesa, com registro de data e status.
+- **Registro de Itens dos Pedidos**: Inclui produtos, quantidade e preço para cada item de um pedido.
+- **Consultas Avançadas**: Realiza consultas com JOIN para exibir informações integradas (ex. pedidos com cliente e mesa).
+- **Atualizações e Exclusões**: Atualiza status de pedidos e permite exclusão de registros de clientes.
+
+## Estrutura do Projeto
+
+- **database.sql**: Script SQL contendo os comandos para criar banco de dados, tabelas, inserir dados de exemplo e consultas básicas.
+- **consultas.sql**: Script SQL com exemplos de consultas com JOIN, atualização e exclusão de dados.
+
+## Como Usar
+
+1. **Clone o Repositório**:
+   ```bash
+   git clone https://github.com/seuusuario/sistema_restaurante.git
